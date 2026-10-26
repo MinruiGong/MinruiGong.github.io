@@ -98,6 +98,7 @@ a:focus-visible, summary:focus-visible { outline: 2px solid var(--jade); outline
 .side nav li { margin: 0.15rem 0; }
 .side nav a { color: var(--ink); text-decoration: none; }
 .side nav a:hover { color: var(--jade); }
+.lang { margin: 1.2rem 0 0; font-size: 0.95rem; }
 .links { margin-top: 1.6rem; font-size: 0.86rem; line-height: 1.8; overflow-wrap: anywhere; }
 
 main { min-width: 0; }
@@ -180,6 +181,22 @@ details p { margin: 0.5rem 0 0.4rem; line-height: 1.66; hyphens: auto; }
 address { font-style: normal; line-height: 1.6; }
 
 footer { margin-top: 4rem; font-size: 0.82rem; color: var(--muted); }
+
+/* Chinese page: Latin text stays in Literata; Chinese falls back to the reader's system sans-serif,
+   which reads better on screen than system Songti (e.g. SimSun on Windows). */
+html:lang(zh-Hans) body {
+  font-family: "Literata", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  line-height: 1.8;
+  text-align: left;
+}
+html:lang(zh-Hans) .jmp .abstract, html:lang(zh-Hans) details p { line-height: 1.85; hyphens: manual; }
+/* Slanted Chinese characters look broken, so labels stay upright on the Chinese page. */
+html:lang(zh-Hans) .jmp-tag, html:lang(zh-Hans) .market,
+html:lang(zh-Hans) .fields span, html:lang(zh-Hans) .presented span { font-style: normal; }
+html:lang(zh-Hans) .name .cjk { letter-spacing: 0.01em; }
+html:lang(zh-Hans) .jmp-title { font-size: 1.85rem; line-height: 1.3; }
+.title-en { display: block; margin-top: 0.2rem; font-size: 0.62em; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+.paper h4 .title-en { font-size: 0.88em; }
 
 /* Phones and narrow windows: one column, the sidebar becomes a header. */
 @media (max-width: 52rem) {
