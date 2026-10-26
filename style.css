@@ -177,8 +177,17 @@ details p { margin: 0.5rem 0 0.4rem; line-height: 1.66; hyphens: auto; }
   font-size: 0.92rem; line-height: 1.5;
 }
 .refs a { overflow-wrap: anywhere; }
-.refs strong a { color: var(--ink); text-decoration-color: var(--rule); }
-.refs strong a:hover { color: var(--jade); text-decoration-color: currentColor; }
+.tags { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin-left: 0.3rem; vertical-align: 0.08em; }
+.tag {
+  font-size: 0.74rem; line-height: 1.5;
+  padding: 0 0.45rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--jade);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tag:hover { border-color: var(--jade); background: var(--jade-soft); }
 
 address { font-style: normal; line-height: 1.6; }
 
