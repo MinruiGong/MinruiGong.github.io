@@ -1,0 +1,202 @@
+/* Fonts are hosted on this site (no Google Fonts: they are blocked in mainland China). */
+@font-face {
+  font-family: "Literata";
+  src: url("fonts/literata-roman.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("fonts/literata-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --paper: #F5F7F6;
+  --ink: #18212B;
+  --muted: #5A6570;
+  --rule: #D5DCD8;
+  --jade: #2E6B5E;
+  --jade-soft: #E2ECE8;
+  --serif: "Literata", "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #151B20;
+    --ink: #E3E8E6;
+    --muted: #9AA6AE;
+    --rule: #2D3740;
+    --jade: #7FBFAE;
+    --jade-soft: #1D2B2A;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 106.25%; } /* 17px */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.62;
+  font-optical-sizing: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--jade); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; border-radius: 2px; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Layout: a quiet column on the left, the papers on the right. */
+.page {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 3rem;
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 40rem);
+  column-gap: 5rem;
+}
+
+.side { position: sticky; top: 4.5rem; align-self: start; }
+
+.name {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.name .cjk {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.role { margin: 1.4rem 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
+.market {
+  margin: 1.1rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--jade);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.side nav ul, .links { list-style: none; margin: 0; padding: 0; }
+.side nav { margin-top: 2.2rem; }
+.side nav li { margin: 0.15rem 0; }
+.side nav a { color: var(--ink); text-decoration: none; }
+.side nav a:hover { color: var(--jade); }
+.links { margin-top: 1.6rem; font-size: 0.86rem; line-height: 1.8; overflow-wrap: anywhere; }
+
+main { min-width: 0; }
+
+.about p { margin: 0 0 1rem; }
+.about p:first-child { font-size: 1.12rem; line-height: 1.55; }
+.fields, .presented { color: var(--muted); font-size: 0.9rem; }
+.fields span, .presented span { font-style: italic; color: var(--ink); margin-right: 0.35em; }
+
+section { margin-top: 3.5rem; }
+section.about { margin-top: 0; }
+
+h2 {
+  margin: 0 0 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+h3.group {
+  margin: 2.4rem 0 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* The job market paper is the one loud element on the page. */
+.jmp {
+  margin: 0 -1.75rem;
+  padding: 1.9rem 1.75rem 1.5rem;
+  background: var(--jade-soft);
+  border-radius: 4px;
+}
+.jmp-tag { margin: 0; font-style: italic; color: var(--jade); font-size: 0.95rem; }
+.jmp-title {
+  margin: 0.3rem 0 0.6rem;
+  font-size: 2.15rem;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.jmp-title a { color: var(--ink); text-decoration: none; }
+.jmp-title a:hover { color: var(--jade); }
+.jmp .abstract { margin: 1rem 0; font-size: 0.96rem; line-height: 1.68; hyphens: auto; }
+.jmp .presented { margin: 0; }
+
+.paper-meta { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+.paper { margin-bottom: 1.6rem; }
+.paper h4 { margin: 0 0 0.15rem; font-size: 1.08rem; font-weight: 600; line-height: 1.35; }
+.paper h4 a { color: var(--ink); text-decoration: none; }
+.paper h4 a:hover { color: var(--jade); }
+.paper .presented { margin: 0.35rem 0 0; }
+.paper-short { margin: 0.2rem 0 0; font-size: 0.95rem; }
+
+details { margin-top: 0.35rem; font-size: 0.95rem; }
+summary { cursor: pointer; color: var(--jade); width: fit-content; }
+details p { margin: 0.5rem 0 0.4rem; line-height: 1.66; hyphens: auto; }
+
+.note { margin: -0.4rem 0 0; color: var(--muted); font-size: 0.92rem; }
+
+.entries {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.55rem 1.25rem;
+  margin: 0;
+  font-size: 0.96rem;
+}
+.entries dt { color: var(--muted); font-variant-numeric: tabular-nums; }
+.entries dd { margin: 0; }
+
+.refs {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1.2rem;
+  font-size: 0.92rem; line-height: 1.5;
+}
+.refs a { overflow-wrap: anywhere; }
+
+address { font-style: normal; line-height: 1.6; }
+
+footer { margin-top: 4rem; font-size: 0.82rem; color: var(--muted); }
+
+/* Phones and narrow windows: one column, the sidebar becomes a header. */
+@media (max-width: 52rem) {
+  .page { display: block; padding: 2.25rem 1rem 2rem; }
+  .side { position: static; margin-bottom: 2.25rem; }
+  .name { font-size: 1.7rem; }
+  .side nav { margin-top: 1.2rem; }
+  .side nav ul { display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; }
+  .links { margin-top: 0.8rem; }
+  .jmp { margin: 0 -1rem; padding: 1.5rem 1rem 1.25rem; border-radius: 0; }
+  .jmp-title { font-size: 1.75rem; }
+  .entries { grid-template-columns: 1fr; gap: 0.1rem; }
+  .entries dd { margin-bottom: 0.7rem; }
+}
+
+@media print {
+  .side nav, details summary { display: none; }
+  details p { display: block; }
+  .page { display: block; }
+}
