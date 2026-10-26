@@ -177,6 +177,8 @@ details p { margin: 0.5rem 0 0.4rem; line-height: 1.66; hyphens: auto; }
   font-size: 0.92rem; line-height: 1.5;
 }
 .refs a { overflow-wrap: anywhere; }
+.refs strong a { color: var(--ink); text-decoration-color: var(--rule); }
+.refs strong a:hover { color: var(--jade); text-decoration-color: currentColor; }
 
 address { font-style: normal; line-height: 1.6; }
 
